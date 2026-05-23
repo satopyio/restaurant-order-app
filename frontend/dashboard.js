@@ -176,11 +176,16 @@ function createOrderCard(order) {
     
     var actionButtonsHtml = getActionButtons(order.status);
     
+    // Format order type display
+    var orderTypeIcon = order.orderType === 'dine-in' ? '🪑' : '📦';
+    var orderTypeLabel = order.orderType === 'dine-in' ? 'Letak Meja' : 'Bungkus';
+    
     div.innerHTML =
         '<div class="order-header">' +
             '<div class="order-number">#' + orderId + '</div>' +
             '<div class="order-customer">' + customerName + '</div>' +
             '<div class="order-time">' + createdTime + '</div>' +
+            '<span class="order-type" title="' + orderTypeLabel + '">' + orderTypeIcon + ' ' + orderTypeLabel + '</span>' +
             '<span class="order-status ' + statusClass + '">' + status + '</span>' +
         '</div>' +
         '<div class="order-items">' +

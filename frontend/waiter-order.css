@@ -255,6 +255,35 @@ body {
     font-family: inherit;
 }
 
+/* Radio Group */
+.radio-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 13px;
+    color: #333;
+}
+
+.radio-label input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    cursor: pointer;
+    accent-color: #e74c3c;
+}
+
+.radio-label span {
+    cursor: pointer;
+}
+
 /* Order Items */
 .order-items {
     display: flex;

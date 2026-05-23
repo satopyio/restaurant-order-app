@@ -240,6 +240,7 @@ function clearCart() {
     renderCart();
     document.getElementById('customerName').value = '';
     document.getElementById('tableNumber').value = '';
+    document.getElementById('orderTypeDineIn').checked = true;
 }
 
 // Format price
@@ -251,18 +252,24 @@ function formatPrice(price) {
 function submitOrder() {
     var customerName = document.getElementById('customerName').value.trim();
     var tableNumber = document.getElementById('tableNumber').value.trim();
+    var orderType = document.querySelector('input[name="orderType"]:checked').value;
     var successMessage = document.getElementById('successMessage');
     
-    if (!tableNumber) {
-        alert('Sila masukkan nombor meja');
+    if (orderType === 'dine-in' && !tableNumber) {
+        alert('Sila masukkan nombor meja untuk pesanan letak meja');
         return;
     }
     
     // If no customer name, use table number as identifier
     if (!customerName) {
-        customerName = 'Meja ' + tableNumber;
-    } else {
+        customerName = 'Pelanggan';
+    }
+    
+    // Format customer name based on order type
+    if (orderType === 'dine-in') {
         customerName = customerName + ' (Meja ' + tableNumber + ')';
+    } else {
+        customerName = customerName + ' (Bungkus)';
     }
     
     if (waiterOrderState.cart.length === 0) {
@@ -276,7 +283,9 @@ function submitOrder() {
     });
     
     var orderData = {
-        customerName: customerName + ' (Meja ' + tableNumber + ')',
+        customerName: customerName,
+        orderType: orderType,
+        tableNumber: orderType === 'dine-in' ? tableNumber : null,
         items: waiterOrderState.cart,
         totalPrice: total
     };
