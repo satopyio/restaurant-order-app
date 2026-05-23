@@ -1,0 +1,576 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.subtitle {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* Main Layout */
+.main-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 15px;
+    height: calc(100vh - 140px);
+}
+
+/* Menu Section */
+.menu-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-section h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.menu-grid::-webkit-scrollbar {
+    width: 6px;
+}
+
+.menu-grid::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.menu-grid::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 3px;
+}
+
+.menu-grid::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+/* Menu Section by Category */
+.menu-section-category {
+    margin-bottom: 20px;
+}
+
+.menu-section-title {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 12px 0;
+    margin: 0;
+    border-bottom: 2px solid;
+    margin-bottom: 12px;
+}
+
+.makanan-title {
+    color: #e74c3c;
+    border-bottom-color: #e74c3c;
+}
+
+.minuman-title {
+    color: #3498db;
+    border-bottom-color: #3498db;
+}
+
+.menu-grid-category {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+}
+
+/* Menu Item */
+.menu-item {
+    background: white;
+    border-radius: 6px;
+    padding: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item:active,
+.menu-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.menu-item-name {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.menu-item-category {
+    font-size: 11px;
+    color: #999;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.menu-item-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: #e74c3c;
+    margin-bottom: 8px;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.qty-btn {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.qty-input {
+    flex: 1;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px;
+    font-size: 13px;
+}
+
+.add-btn {
+    width: 100%;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.add-btn:active {
+    background-color: #c0392b;
+}
+
+/* Order Panel */
+.order-panel {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.panel-header {
+    background: #f9f9f9;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.panel-header h2 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.panel-section {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.panel-section h3 {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+/* Form Group */
+.form-group {
+    padding: 10px 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 12px;
+    color: #333;
+}
+
+.optional {
+    font-weight: 400;
+    color: #999;
+    font-size: 11px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: inherit;
+}
+
+/* Order Items */
+.order-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.empty-message {
+    color: #999;
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 8px;
+    background: #f9f9f9;
+    border-radius: 4px;
+    font-size: 12px;
+    gap: 8px;
+}
+
+.order-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.order-item-name {
+    font-weight: 600;
+    color: #333;
+}
+
+.order-item-qty {
+    color: #999;
+    font-size: 11px;
+}
+
+.order-item-price {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+.order-item-remove {
+    width: 20px;
+    height: 20px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.order-item-remove:active {
+    background: #c0392b;
+}
+
+/* Total Section */
+.total-section {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.total-row:last-child {
+    margin-bottom: 0;
+}
+
+.total-row.total-amount {
+    font-size: 15px;
+    font-weight: 700;
+    color: #e74c3c;
+}
+
+/* Button Group */
+.button-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.btn {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background-color: #27ae60;
+    color: white;
+    grid-column: 1 / -1;
+}
+
+.btn-primary:active {
+    background-color: #229954;
+}
+
+.btn-secondary {
+    background-color: #ddd;
+    color: #333;
+}
+
+.btn-secondary:active {
+    background-color: #ccc;
+}
+
+/* Success Message */
+.success-message {
+    background: #27ae60;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 0 12px;
+    text-align: center;
+    font-size: 13px;
+    animation: slideIn 0.3s ease-in-out;
+}
+
+.success-message p {
+    margin: 0;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dashboard Link */
+.dashboard-link {
+    padding: 10px 12px;
+    text-align: center;
+    background: #f9f9f9;
+}
+
+.dashboard-link a {
+    display: inline-block;
+    padding: 8px 12px;
+    background: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.dashboard-link a:hover {
+    background: #2980b9;
+}
+
+/* Responsive adjustments for plus/minus quantity controls */
+/* Default (desktop/tablet): slightly larger controls for accuracy */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.qty-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    line-height: 36px;
+}
+
+.qty-input {
+    width: 72px;
+    padding: 6px;
+    font-size: 15px;
+}
+
+.add-btn {
+    padding: 10px;
+    font-size: 13px;
+}
+
+/* Small devices (phones) - larger touch targets and compact layout */
+@media (max-width: 480px) {
+    .quantity-control {
+        gap: 6px;
+        /* allow controls to wrap neatly on very small screens */
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .qty-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+        line-height: 44px;
+        border-radius: 6px;
+    }
+
+    .qty-input {
+        width: 56px;
+        padding: 6px;
+        font-size: 16px;
+    }
+
+    .add-btn {
+        padding: 8px;
+        font-size: 12px;
+    }
+}
+
+/* Large screens - more spacing and larger inputs */
+@media (min-width: 1024px) {
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+
+    .qty-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        line-height: 40px;
+    }
+
+    .qty-input {
+        width: 84px;
+        padding: 8px;
+        font-size: 16px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .main-layout {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        height: auto;
+        max-height: 300px;
+    }
+
+    .order-panel {
+        height: auto;
+    }
+
+    .panel-section {
+        height: auto;
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quantity-control {
+        gap: 4px;
+        margin-bottom: 6px;
+    }
+
+    .qty-btn {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+    }
+
+    .qty-input {
+        padding: 3px;
+        font-size: 12px;
+    }
+
+    .add-btn {
+        padding: 6px;
+        font-size: 11px;
+    }
+
+    .button-group {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-primary {
+        grid-column: 1;
+    }
+}

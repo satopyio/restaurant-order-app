@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Ambil Pesanan">
+    <title>Sistem Ambil Pesanan - Pelayan</title>
+    <link rel="stylesheet" href="waiter-order.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <h1>Ambil Pesanan</h1>
+            <p class="subtitle">Sistem Pengambilan Pesanan Restoran</p>
+        </header>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            <!-- Menu Section -->
+            <section class="menu-section">
+                <h2>Menu Restoran</h2>
+                <div id="menuContainer" class="menu-grid">
+                    <!-- Menu items will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Order Panel -->
+            <section class="order-panel">
+                <!-- Customer Info -->
+                <div class="panel-header">
+                    <h2>Maklumat Pelanggan</h2>
+                </div>
+
+                <div class="form-group">
+                    <label for="customerName">Nama Pelanggan: <span class="optional">(Optional)</span></label>
+                    <input type="text" id="customerName" placeholder="Cth: Ali bin Ahmad">
+                </div>
+
+                <div class="form-group">
+                    <label for="tableNumber">Nombor Meja:</label>
+                    <input type="text" id="tableNumber" placeholder="Cth: 1, 2A, VIP-1">
+                </div>
+
+                <!-- Order Items -->
+                <div class="panel-section">
+                    <h3>Makanan yang Dipesan</h3>
+                    <div id="orderItems" class="order-items">
+                        <p class="empty-message">Tiada pesanan</p>
+                    </div>
+                </div>
+
+                <!-- Total Price -->
+                <div class="total-section">
+                    <div class="total-row">
+                        <span>Jumlah Item:</span>
+                        <span id="totalItems">0</span>
+                    </div>
+                    <div class="total-row total-amount">
+                        <span>Jumlah Harga:</span>
+                        <span>RM <span id="totalPrice">0.00</span></span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="button-group">
+                    <button id="clearBtn" class="btn btn-secondary">Kosongkan</button>
+                    <button id="submitBtn" class="btn btn-primary">Simpan Pesanan</button>
+                </div>
+
+                <!-- Success Message -->
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <p>✓ Pesanan disimpan sebagai Pending!</p>
+                </div>
+
+                <!-- View Dashboard Link -->
+                <div class="dashboard-link">
+                    <a href="dashboard.html" target="_blank">📊 Lihat Papan Kontrol</a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="waiter-order.js"></script>
+</body>
+</html>

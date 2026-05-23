@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papan Kontrol Pesanan</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <h1>Papan Kontrol Pesanan</h1>
+            <p class="subtitle">Pantau dan urus pesanan</p>
+        </header>
+
+        <!-- Main Content -->
+        <div class="container">
+            <!-- Filters -->
+            <div class="filters">
+                <button class="filter-btn active" data-filter="pending">
+                    Menunggu
+                    <span class="badge" id="pending-count">0</span>
+                </button>
+                <button class="filter-btn" data-filter="ready">
+                    Siap
+                    <span class="badge" id="ready-count">0</span>
+                </button>
+                <button class="filter-btn" data-filter="completed">
+                    Selesai
+                    <span class="badge" id="completed-count">0</span>
+                </button>
+                <button class="filter-btn" data-filter="all">
+                    Semua
+                    <span class="badge" id="all-count">0</span>
+                </button>
+            </div>
+
+            <!-- Orders Display -->
+            <div id="ordersContainer" class="orders-container">
+                <!-- Orders will be loaded here -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="empty-state" style="display: none;">
+                <p>Tiada pesanan</p>
+            </div>
+        </div>
+
+        <!-- Refresh Button -->
+        <button id="refreshBtn" class="refresh-btn">
+            🔄 Segarkan
+        </button>
+
+        <!-- Back to Order Button -->
+        <button id="backBtn" class="back-btn">
+            ← Kembali ke Ambil Pesanan
+        </button>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
