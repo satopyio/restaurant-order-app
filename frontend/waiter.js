@@ -264,7 +264,7 @@ function formatTime(isoString) {
 
 // Format price
 function formatPrice(price) {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return price.toFixed(2);
 }
 
 // Cleanup on page unload

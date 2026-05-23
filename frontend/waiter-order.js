@@ -225,7 +225,7 @@ function renderCart() {
     });
     
     totalItemsSpan.textContent = totalItems;
-    totalPriceSpan.textContent = formatPrice(total).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    totalPriceSpan.textContent = 'RM ' + formatPrice(total);
 }
 
 // Remove item from cart
@@ -244,7 +244,7 @@ function clearCart() {
 
 // Format price
 function formatPrice(price) {
-    return price.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return price.toFixed(2);
 }
 
 // Submit order

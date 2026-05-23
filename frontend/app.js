@@ -186,7 +186,7 @@ function clearCart() {
 
 // Format price
 function formatPrice(price) {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return price.toFixed(2);
 }
 
 // Submit order
