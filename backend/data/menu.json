@@ -4,23 +4,23 @@
     "name": "Nasi Ayam Penyet",
     "type": "makanan",
     "category": "main",
-    "price": 9.00,
+    "price": 10.00,
     "description": "Nasi putih dengan ayam penyet, sambal dan lalapan"
   },
   {
     "id": 2,
-    "name": "Nasi Pecel Leleh Penyet",
+    "name": "Nasi Pecel Lele Penyet",
     "type": "makanan",
     "category": "main",
-    "price": 9.50,
-    "description": "Nasi putih dengan pecel, telur, dan daging penyet"
+    "price": 10.00,
+    "description": "Nasi putih dengan pecel, lele, dan daging penyet"
   },
   {
     "id": 3,
     "name": "Nasi Siakap Penyet",
     "type": "makanan",
     "category": "main",
-    "price": 10.50,
+    "price": 12.00,
     "description": "Nasi putih dengan ikan siakap penyet, sambal dan lalapan"
   },
   {
@@ -28,7 +28,7 @@
     "name": "Nasi Ayam",
     "type": "makanan",
     "category": "main",
-    "price": 8.50,
+    "price": 7.00,
     "description": "Nasi putih dengan ayam masak, sambal dan lalapan"
   },
   {
