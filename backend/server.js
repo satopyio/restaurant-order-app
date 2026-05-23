@@ -132,6 +132,29 @@ app.put('/api/orders/:id', function(req, res) {
   }
 });
 
+// Delete single order
+app.delete('/api/orders/:id', function(req, res) {
+  try {
+    const orderId = parseInt(req.params.id);
+    const orders = readOrders();
+    const newOrders = orders.filter(function(o) { return o.id !== orderId; });
+
+    if (newOrders.length === orders.length) {
+      return res.status(404).json({ error: 'Order tidak ditemukan' });
+    }
+
+    writeOrders(newOrders);
+
+    res.json({
+      success: true,
+      message: 'Order berhasil dibatalkan'
+    });
+  } catch (err) {
+    console.error('Error deleting order:', err);
+    res.status(500).json({ error: 'Gagal membatalkan order' });
+  }
+});
+
 // Start server
 app.listen(PORT, function() {
   console.log('Server berjalan di http://localhost:' + PORT);

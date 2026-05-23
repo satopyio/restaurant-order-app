@@ -253,17 +253,44 @@ function setupOrderActions(cardElement, order) {
 
 // Handle order action
 function handleOrderAction(orderId, action) {
+    if (action === 'cancel') {
+        deleteOrder(orderId);
+        return;
+    }
+    
     var newStatus = '';
     
     if (action === 'ready') {
         newStatus = 'ready';
     } else if (action === 'complete') {
         newStatus = 'completed';
-    } else if (action === 'cancel' || action === 'back') {
+    } else if (action === 'back') {
         newStatus = 'pending';
     }
     
     updateOrderStatus(orderId, newStatus);
+}
+
+// Delete order
+function deleteOrder(orderId) {
+    if (!confirm('Adakah anda pasti ingin membatalkan pesanan ini?')) {
+        return;
+    }
+    
+    var url = dashboardState.apiUrl + '/api/orders/' + orderId;
+    var xhr = new XMLHttpRequest();
+    xhr.open('DELETE', url, true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            loadOrders();
+        } else {
+            alert('Gagal membatalkan pesanan');
+        }
+    };
+    xhr.onerror = function() {
+        alert('Ralat: Tidak dapat tersambung ke pelayan');
+    };
+    xhr.send();
 }
 
 // Update order status
