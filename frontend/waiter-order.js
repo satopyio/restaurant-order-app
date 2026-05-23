@@ -2,7 +2,7 @@
 var waiterOrderState = {
     menu: [],
     cart: [],
-    apiUrl: 'http://localhost:3000'
+    apiUrl: window.location.origin
 };
 
 // Initialize on page load

@@ -2,7 +2,7 @@
 var dashboardState = {
     orders: [],
     currentFilter: 'pending',
-    apiUrl: 'http://localhost:3000',
+    apiUrl: window.location.origin,
     refreshInterval: null
 };
 
