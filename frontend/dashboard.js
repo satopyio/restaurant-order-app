@@ -177,8 +177,9 @@ function createOrderCard(order) {
     var actionButtonsHtml = getActionButtons(order.status);
     
     // Format order type display
-    var orderTypeIcon = order.orderType === 'dine-in' ? '🪑' : '📦';
-    var orderTypeLabel = order.orderType === 'dine-in' ? 'Letak Meja' : 'Bungkus';
+    var safeOrderType = order.orderType === 'takeaway' ? 'takeaway' : 'dine-in';
+    var orderTypeIcon = safeOrderType === 'dine-in' ? '🪑' : '📦';
+    var orderTypeLabel = safeOrderType === 'dine-in' ? 'Letak Meja' : 'Bungkus';
     
     div.innerHTML =
         '<div class="order-header">' +
