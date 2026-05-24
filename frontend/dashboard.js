@@ -180,12 +180,13 @@ function createOrderCard(order) {
     var safeOrderType = order.orderType === 'takeaway' ? 'takeaway' : 'dine-in';
     var orderTypeIcon = safeOrderType === 'dine-in' ? '🪑' : '📦';
     var orderTypeLabel = safeOrderType === 'dine-in' ? 'Letak Meja' : 'Bungkus';
+    var noteHtml = order.note && order.note.trim() ? '<div class="order-note"><strong>Nota:</strong> ' + escapeHtml(order.note.trim()) + '</div>' : '';
     
     div.innerHTML =
         '<div class="order-header">' +
             '<div class="order-number">#' + orderId + '</div>' +
             '<div class="order-customer">' + customerName + '</div>' +
-            (order.note ? '<div class="order-note"><strong>Nota:</strong> ' + order.note + '</div>' : '') +
+            noteHtml +
             '<div class="order-time">' + createdTime + '</div>' +
             '<span class="order-type" title="' + orderTypeLabel + '">' + orderTypeIcon + ' ' + orderTypeLabel + '</span>' +
             '<span class="order-status ' + statusClass + '">' + status + '</span>' +
@@ -215,6 +216,16 @@ function getStatusLabel(status) {
         'completed': 'Selesai'
     };
     return labels[status] || status;
+}
+
+// Escape HTML to render notes safely
+function escapeHtml(text) {
+    return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
 }
 
 // Get action buttons HTML

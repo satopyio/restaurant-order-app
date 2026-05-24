@@ -1,35 +1,35 @@
 [
   {
     "id": 1,
-    "name": "Nasi Ayam Penyet",
+    "name": "Nasi Goreng Istimewa",
     "type": "makanan",
     "category": "main",
-    "price": 10.00,
-    "description": "Nasi putih dengan ayam penyet, sambal dan lalapan"
+    "price": 8.50,
+    "description": "Nasi goreng dengan telur, udang dan sayuran"
   },
   {
     "id": 2,
-    "name": "Nasi Pecel Lele Penyet",
+    "name": "Mee Goreng Mamak",
     "type": "makanan",
     "category": "main",
-    "price": 10.00,
-    "description": "Nasi putih dengan pecel, lele, dan daging penyet"
+    "price": 7.50,
+    "description": "Mee goreng dengan sambal, telur dan daging"
   },
   {
     "id": 3,
-    "name": "Nasi Siakap Penyet",
+    "name": "Laksa Lemak",
     "type": "makanan",
-    "category": "main",
-    "price": 12.00,
-    "description": "Nasi putih dengan ikan siakap penyet, sambal dan lalapan"
+    "category": "soup",
+    "price": 6.50,
+    "description": "Laksa kuali dengan santan dan rempah pilihan"
   },
   {
     "id": 4,
-    "name": "Nasi Ayam",
+    "name": "Gado-Gado Istimewa",
     "type": "makanan",
-    "category": "main",
+    "category": "salad",
     "price": 7.00,
-    "description": "Nasi putih dengan ayam masak, sambal dan lalapan"
+    "description": "Gado-gado dengan bumbu kacang pekat"
   },
   {
     "id": 5,

@@ -2,7 +2,7 @@
 var waiterState = {
     orders: [],
     currentFilter: 'pending',
-    apiUrl: 'http://localhost:3000',
+    apiUrl: window.location.origin,
     refreshInterval: null
 };
 
@@ -146,11 +146,13 @@ function createOrderCard(order) {
     });
     
     var actionButtonsHtml = getActionButtons(order.status);
+    var noteHtml = order.note && String(order.note).trim() ? '<div class="order-note"><strong>Nota:</strong> ' + escapeHtml(String(order.note).trim()) + '</div>' : '';
     
     div.innerHTML =
         '<div class="order-header">' +
             '<div class="order-number">#' + orderId + '</div>' +
             '<div class="order-customer">' + customerName + '</div>' +
+            noteHtml +
             '<div class="order-time">' + createdTime + '</div>' +
             '<span class="order-status ' + statusClass + '">' + status + '</span>' +
         '</div>' +
@@ -169,6 +171,16 @@ function createOrderCard(order) {
     setupOrderActions(div, order);
     
     return div;
+}
+
+// Escape HTML so order notes render safely
+function escapeHtml(text) {
+    return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
 }
 
 // Get status label

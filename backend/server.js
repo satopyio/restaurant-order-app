@@ -54,7 +54,11 @@ app.get('/api/menu', function(req, res) {
 
 // Get all orders
 app.get('/api/orders', function(req, res) {
-  const orders = readOrders();
+  const orders = readOrders().map(function(order) {
+    return Object.assign({}, order, {
+      note: order.note || ''
+    });
+  });
   res.json(orders);
 });
 
@@ -75,7 +79,7 @@ app.delete('/api/orders/reset/all', function(req, res) {
 // Create new order
 app.post('/api/orders', function(req, res) {
   try {
-    const { customerName, orderType, tableNumber, items, totalPrice } = req.body;
+    const { customerName, orderType, tableNumber, note, items, totalPrice } = req.body;
     
     if (!customerName || !items || items.length === 0) {
       return res.status(400).json({ error: 'Data tidak lengkap' });
@@ -87,6 +91,7 @@ app.post('/api/orders', function(req, res) {
       customerName: customerName,
       orderType: orderType || 'dine-in',
       tableNumber: orderType === 'dine-in' ? tableNumber : null,
+      note: note || '',
       items: items,
       totalPrice: totalPrice,
       status: 'pending',
