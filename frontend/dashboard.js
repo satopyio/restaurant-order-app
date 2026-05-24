@@ -185,6 +185,7 @@ function createOrderCard(order) {
         '<div class="order-header">' +
             '<div class="order-number">#' + orderId + '</div>' +
             '<div class="order-customer">' + customerName + '</div>' +
+            (order.note ? '<div class="order-note"><strong>Nota:</strong> ' + order.note + '</div>' : '') +
             '<div class="order-time">' + createdTime + '</div>' +
             '<span class="order-type" title="' + orderTypeLabel + '">' + orderTypeIcon + ' ' + orderTypeLabel + '</span>' +
             '<span class="order-status ' + statusClass + '">' + status + '</span>' +
