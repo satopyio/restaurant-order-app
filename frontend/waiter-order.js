@@ -240,6 +240,7 @@ function clearCart() {
     renderCart();
     document.getElementById('customerName').value = '';
     document.getElementById('tableNumber').value = '';
+    document.getElementById('orderNote').value = '';
     document.getElementById('orderTypeDineIn').checked = true;
 }
 
@@ -253,6 +254,7 @@ function submitOrder() {
     var customerName = document.getElementById('customerName').value.trim();
     var tableNumber = document.getElementById('tableNumber').value.trim();
     var orderType = document.querySelector('input[name="orderType"]:checked').value;
+    var orderNote = document.getElementById('orderNote').value.trim();
     var successMessage = document.getElementById('successMessage');
     
     if (orderType === 'dine-in' && !tableNumber) {
@@ -286,6 +288,7 @@ function submitOrder() {
         customerName: customerName,
         orderType: orderType,
         tableNumber: orderType === 'dine-in' ? tableNumber : null,
+        note: orderNote,
         items: waiterOrderState.cart,
         totalPrice: total
     };

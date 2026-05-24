@@ -246,13 +246,19 @@ body {
     font-size: 11px;
 }
 
-.form-group input {
+.form-group input,
+.form-group textarea {
     width: 100%;
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 13px;
     font-family: inherit;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 70px;
 }
 
 /* Radio Group */
